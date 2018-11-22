@@ -24,3 +24,4 @@ var validater = $('#login-form').validate({
         });
         return false;
     }
+});

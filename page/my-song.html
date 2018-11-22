@@ -12,16 +12,21 @@
           content="https://tooeasy2get2points.herokuapp.com/img/share-home.png"/>
     <link rel="icon" type="image/png" href="img/myfavicon.png">
     <link rel="stylesheet" href="../css/style.css">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
 </head>
 <body>
-<h1>Song i like</h1>
-<ul>
-    <li><a href="register.html" title="Register member">Register</a></li>
+
+<ul class="breadcrumb">
+    <li><a href="register-jquery.html" title="Register member">Register</a></li>
     <li><a href="login.html" title="Member login">Login</a></li>
     <li><a href="save-song.html" title="Create Song">Create Song</a></li>
     <li><a href="list-song.html" title="Latest Song">Latest Song</a></li>
     <li><a href="my-song.html" title="My Song">My Song</a></li>
 </ul>
+<h1>Song i like</h1>
 <div class="song-player">
     <div class="song-detail">
         <marquee behavior="scroll" direction="left">
@@ -39,6 +44,12 @@
 </div>
 <div class="list-song" id="list-song">
 </div>
+<script src="../library/jquery-3.3.1.min.js"></script>
+<script src="../library/jquery.validate.min.js"></script>
+<script src="../library/additional-methods.min.js"></script>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 <script src="../js/config.js"></script>
 <script src="../js/my-song.js"></script>
 </body>
