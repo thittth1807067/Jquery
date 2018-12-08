@@ -1,56 +1,221 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Listen to your song || Song I Like</title>
-    <meta property="og:url"
-          content="https://tooeasy2get2points.herokuapp.com/my-song.html"/>
-    <meta property="og:type" content="song"/>
-    <meta property="og:title" content="Listen to your song || Song I Like"/>
-    <meta property="og:description" content="Listen to your song"/>
-    <meta property="og:image"
-          content="https://tooeasy2get2points.herokuapp.com/img/share-home.png"/>
-    <link rel="icon" type="image/png" href="img/myfavicon.png">
-    <link rel="stylesheet" href="../css/style.css">
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+          integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
 
+
+
+
+
+    <link rel="stylesheet" href="../css/style.css">
+    <title>Trang chủ</title>
 </head>
 <body>
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark " >
 
-<ul class="breadcrumb">
-    <li><a href="register-jquery.html" title="Register member">Register</a></li>
-    <li><a href="login.html" title="Member login">Login</a></li>
-    <li><a href="save-song.html" title="Create Song">Create Song</a></li>
-    <li><a href="list-song.html" title="Latest Song">Latest Song</a></li>
-    <li><a href="my-song.html" title="My Song">My Song</a></li>
-</ul>
-<h1>Song i like</h1>
-<div class="song-player">
-    <div class="song-detail">
-        <marquee behavior="scroll" direction="left">
-            <div class="current-song-title">
-                <span id="current-play-title"></span>
-            </div>
-        </marquee>
+    <a class="navbar-brand" href="#"><img src="../img/logo.jpg" alt="logo" style="width: 60px;"></a>
+    <span class="navbar-text pr-5"> My Music</span>
+
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse pl-5" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto pl-5" style="float: right;">
+            <li class="nav-item active pl-5">
+                <a class="nav-link" href="song-detail.html">Trang chủ <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item pl-3">
+                <a class="nav-link" href="list-song.html">Danh sách nhạc</a>
+            </li>
+            <li class="nav-item pl-3">
+                <a class="nav-link" href="#">Bài hát mới</a>
+            </li>
+            <li class="nav-item pl-3">
+                <a id="btn-mysong" class="nav-link" href="my-song.html">Nhạc của tôi</a>
+            </li>
+            <li class="nav-item pl-3">
+                <a id="btn-creatsong" class="nav-link" href="#">Thêm bài hát</a>
+            </li>
+            <li class="nav-item dropdown pl-3">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Account</a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <a id="btn-register" class="dropdown-item" href="#">Đăng kí</a>
+                    <div class="dropdown-divider"></div>
+                    <a id="btn-login" class="dropdown-item" href="#">Đăng nhập</a>
+                </div>
+            </li>
+        </ul>
     </div>
-    <div class="player">
-        <audio controls id="my-mp3" autoplay>
-            <source src="" type="audio/mpeg">
-            Your browser does not support the audio element.
-        </audio>
+</nav>
+
+
+<div class="modal fade" id="modal-login" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Đănh nhập</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form action="" name="login-form" id="login-form"style="margin: 30px;">
+                    <div class="form-group row">
+                        <label class="col-form-label " style="margin-right: 60px;">Email</label>
+                        <input class="form-control " type="email" name="email"   style="width: 70%;">
+                    </div>
+                    <div class="form-group row">
+                        <label class="col-form-label " style="margin-right: 30px;">Mật khẩu</label>
+                        <input class="form-control " type="password" name="password"  style="width: 70%;">
+                    </div>
+                    <button type="submit" class="btn btn-primary"  style="width: 95%;">Đăng nhập</button>
+                </form>
+            </div>
+        </div>
     </div>
 </div>
-<div class="list-song" id="list-song">
+
+<div class="container">
+    <div class="song-player pt-2 row ">
+        <div class="song-detail col-sm-12 col-md-8">
+            <marquee behavior="scroll" direction="left">
+                <div class="current-song-title">
+                    <span id="current-play-title"></span>
+                </div>
+            </marquee>
+        </div>
+        <div class="player col-sm-12 col-md-2">
+            <audio controls id="my-mp3" autoplay>
+                <source src="" type="audio/mpeg">
+            </audio>
+        </div>
+    </div>
+</div>
+<div class="list-song container " id="list-song"></div>
+<div class="my-song container " id="my-song"></div>
+
+<div class="modal" id="modal-register" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Đăng kí</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form action="" name="register-form" id="register-form">
+                    <div class="form-group col row" style="margin-left: 10px;" >
+
+                        <input class="form-control " type="text" name="firstName" placeholder="Họ" style="margin-right: 30px; width: 45%;"   >
+                        <input class="form-control " type="text" name="lastName"  placeholder="Tên" style="float: right;width: 45%;">
+
+                    </div>
+
+                    <div class="form-group row" >
+
+                        <input class="form-control" type="email" name="email"   placeholder="Email" style="width: 90%; margin: 30px;">
+                    </div>
+                    <div class="form-group row"  style="margin-left: 10px;">
+
+                        <input class="form-control" type="password" name="password" placeholder="Mật khẩu" style="margin-right: 30px; width: 45%;" >
+                        <input class="form-control" type="password" name="confirm-password"  placeholder="Nhập lại mật khẩu" style="float: right;width: 45%;">
+                    </div>
+
+                    <div class="form-group row">
+
+                        <input class="form-control" name="address"  placeholder="Địa chỉ" style="width: 90%; margin: 30px;" >
+                    </div>
+                    <div class="form-group row" style="margin-left: 10px;">
+
+                        <input class="form-control" type="text" name="phone"  placeholder="Số điện thoại"style="margin-right: 30px; width: 45%;" >
+                        <input class="form-control" type="text" name="avatar"   placeholder="Avatar"style="float: right;width: 45%;">
+                    </div>
+
+                    <div class="form-group row" style="margin-left: 10px;">
+
+                        <select class="form-control" name="gender"  placeholder="Giới tính" style="margin-right: 30px; width: 45%;">
+                            <option value="1"  >Male</option>
+                            <option value="0">Female</option>
+                            <option value="2">Other</option>
+                        </select>
+                        <input class="form-control" type="date" name="birthday"  placeholder="Ngày sinh" style="float: right;width: 45%;">
+                    </div>
+
+
+                    <div class="form-group" style="float: right;">
+                        <label class="">&nbsp;</label>
+                        <input class="btn btn-primary" type="submit" name="btn-submit" value="Đăng kí" style="width: 95%;" >
+
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal" id="modal-creatsong" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Thêm bài hát mới</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div id="sumary" class="error"></div>
+                <form action="" name="song-form" id="song-form" style="margin: 50px;" >
+                    <div class="form-group row">
+                        <label class="col-form-label" style="margin-right: 20px;">Tên bài hát</label>
+                        <input class="form-control" type="text" name="name" style="width: 70%;margin-right: 20px;">
+                    </div>
+                    <div class="form-group row">
+                        <label class="col-form-label"  style="margin-right: 57px;">Ca sĩ</label>
+                        <input class="form-control" type="text" name="singer" style="width: 70%;margin-right: 18px;">
+                    </div>
+                    <div class="form-group row">
+                        <label class="col-form-label"  style="margin-right: 30px;">Giới thiệu</label>
+                        <input class="form-control" type="text" name="description" style="width: 70%;margin-right: 20px;">
+                    </div>
+                    <div class="form-group row">
+                        <label class="col-form-label"  style="margin-right: 45px;">Nhạc sĩ</label>
+                        <input class="form-control" type="text" name="author" style="width: 70%;margin-right: 20px;">
+                    </div>
+                    <div class="form-group row">
+                        <label class="col-form-label"  style="margin-right: 50px;">Avarta</label>
+                        <input class="form-control" type="text" name="thumbnail" style="width: 70%;margin-right: 20px;">
+                    </div>
+                    <div class="form-group row">
+                        <label class="col-form-label" style="margin-right: 65px;"  >Link</label>
+                        <input class="form-control" type="text" name="link" style="width: 70%;margin-right: 20px;">
+                    </div>
+                    <div class="form-group">
+                        <label>&nbsp;</label>
+                        <input class="btn btn-primary" type="submit" name="btn-submit" value="Thêm bài mới" style="width: 90%;">
+
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
 </div>
 <script src="../library/jquery-3.3.1.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+
 <script src="../library/jquery.validate.min.js"></script>
 <script src="../library/additional-methods.min.js"></script>
-
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 <script src="../js/config.js"></script>
+<script src="../js/login.js"></script>
+<script src="../js/register-jquery.js"></script>
+<script src="../js/save-song.js"></script>
+<script src="../js/list-song.js"></script>
+
 <script src="../js/my-song.js"></script>
 </body>
 </html>

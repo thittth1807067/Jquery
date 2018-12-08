@@ -1,10 +1,10 @@
-* {
-    font-family: Tahoma;
-    margin: 7px;
-}
+
 .song-item {
     border: 1px solid rgba(13,23,20,0.2);
     border-radius: 10px;
+    margin:30px;
+    padding-top:20px;
+    padding-bottom: 20px;
 }
 .song-item:after {
     content: '';
@@ -26,7 +26,7 @@
 }
 .song-thumbnail img {
     width: 100%;
-    border-radius: 10px;
+    border-radius: 100%;
 }
 .song-infor {
     padding-top: 1%;
@@ -35,10 +35,12 @@
 }
 .song-infor .song-name {
     font-weight: bold;
+    padding-left:20px;
 }
 .song-infor .song-singer {
     font-weight: lighter;
     color: rgba(0,0,23,0.47);
+    padding-left:20px;
 }
 .song-control {
     padding-top: 3%;
@@ -46,7 +48,8 @@
     cursor: pointer;
     text-decoration: underline;
     float: left;
-    width: 10%;
+    width: 20%;
+    padding-left:70px;
 }
 
 .song-detail {
@@ -54,4 +57,10 @@
     width: 50%;
     padding-top: 0.5%;
     font-weight: bold;
+}
+.song-control img{
+    width: 30px;
+}
+.form-control{
+    width: auto;
 }

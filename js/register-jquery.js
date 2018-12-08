@@ -1,5 +1,6 @@
-
-
+$('#btn-register').click(function () {
+    $('#modal-register').modal('show');
+});
 var validater = $('#register-form').validate({
     rules: {
         'firstName': {
@@ -46,7 +47,7 @@ var validater = $('#register-form').validate({
             maxlength: 'Password quá dài, vui lòng nhập nhiều nhất {0} ký tự',
         },
         'confirm-password': {
-            equalTo: 'Password và confirm không giống nhao.'
+            equalTo: 'Password và confirm không giống nhau.'
         }
     },
     submitHandler: function (form,event) {
@@ -67,20 +68,15 @@ var validater = $('#register-form').validate({
             url: REGISTER_API,
             contentType: 'application/json; charset=utf-8',
             data: JSON.stringify(senderObject),
-            success: function (data, textStatus, jqXHR) {
+            success: function () {
                 console.log('success');
-                console.log(data);
-                console.log('-----');
-                console.log(data.responseText);
-                console.log('-----');
-                console.log(textStatus);
-                console.log('-----');
-                console.log(jqXHR);
+                alert('Đăng kí thành công');
             },
-            error: function (jqXHR, textStatus, errorThrown) {
+            error: function (jqXHR, textStatus, error) {
                 console.log('error');
+                console.log(Object.keys(jqXHR.responseJSON.error));
                 // if (Object.keys(jqXHR.responseJSON.error).length > 0) {
-                //     $('#summary').text(please fix ${Object.keys(jqXHR.responseJSON.error).length} below!);
+                //     //$('#summary').text(please fix ${Object.keys(jqXHR.responseJSON.error).length} below!);
                 //     validater.showErrors(jqXHR.responseJSON.error);
                 // }
             }
